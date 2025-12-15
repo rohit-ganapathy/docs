@@ -48,6 +48,10 @@
         ]
       },
       {
+        "tab": "Features & Tools",
+        "pages": ["features-tools/index"]
+      },
+      {
         "tab": "Deskphones and Devices",
         "groups": [
           {

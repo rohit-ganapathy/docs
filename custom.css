@@ -99,3 +99,25 @@ input[type="text"]:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12) !important;
 }
 
+/* FAQ Items Hover Effects */
+.faq-item:hover {
+  background-color: #F9FAFB !important;
+  border-color: #667eea !important;
+  transform: translateX(4px);
+}
+
+.faq-item:hover svg {
+  color: #667eea !important;
+}
+
+/* FAQ CTA Button Hover */
+.faq-cta:hover {
+  background-color: #667eea !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+}
+
+.faq-cta:hover svg {
+  color: #FFFFFF !important;
+}
