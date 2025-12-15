@@ -1,0 +1,73 @@
+export const RegionModal = () => {
+  if (typeof window === 'undefined') return null;
+  
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
+(function() {
+  'use strict';
+  
+  const currentPath = window.location.pathname;
+  
+  // Only show modal on root/parent URL (/)
+  // Show every time user visits the root URL (not just first time)
+  if (currentPath !== '/') {
+    return;
+  }
+  
+  // Create modal overlay
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 10000; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px);';
+  
+  // Create modal container
+  const modal = document.createElement('div');
+  modal.style.cssText = 'background: white; border-radius: 12px; padding: 32px; max-width: 500px; width: 90%; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); position: relative; animation: fadeIn 0.3s ease-out;';
+  
+  // Add fade-in animation
+  const style = document.createElement('style');
+  style.textContent = '@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }';
+  document.head.appendChild(style);
+  
+  // Modal content
+  modal.innerHTML = '<div style="text-align: center;"><p style="font-size: 16px; color: #1f2937; margin-bottom: 24px; line-height: 1.5;">You will be viewing the website for the USA region</p><button id="continue-usa" style="width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; padding: 14px 24px; font-size: 16px; font-weight: 600; cursor: pointer; margin-bottom: 20px; transition: transform 0.2s, box-shadow 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;" onmouseover="this.style.transform=\\'scale(1.02)\\'; this.style.boxShadow=\\'0 10px 15px -3px rgba(102, 126, 234, 0.3)\\'" onmouseout="this.style.transform=\\'scale(1)\\'; this.style.boxShadow=\\'none\\'"><span style="font-size: 20px;">🇺🇸</span>Continue with USA</button><div style="display: flex; align-items: center; margin: 20px 0;"><div style="flex: 1; height: 1px; background: #e5e7eb;"></div><span style="padding: 0 12px; color: #6b7280; font-size: 14px;">Or Go To</span><div style="flex: 1; height: 1px; background: #e5e7eb;"></div></div><div style="display: flex; gap: 12px; justify-content: center;"><button id="go-to-uk" style="flex: 1; background: transparent; color: #6b7280; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 16px; font-size: 14px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px;" onmouseover="this.style.borderColor=\\'#9ca3af\\'; this.style.color=\\'#374151\\'" onmouseout="this.style.borderColor=\\'#e5e7eb\\'; this.style.color=\\'#6b7280\\'"><span style="font-size: 18px;">🇬🇧</span>UK</button><button id="go-to-aus" style="flex: 1; background: transparent; color: #6b7280; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 16px; font-size: 14px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px;" onmouseover="this.style.borderColor=\\'#9ca3af\\'; this.style.color=\\'#374151\\'" onmouseout="this.style.borderColor=\\'#e5e7eb\\'; this.style.color=\\'#6b7280\\'"><span style="font-size: 18px;">🇦🇺</span>ANZ</button></div></div>';
+  
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+  
+  // Handle region selection
+  function selectRegion(region) {
+    localStorage.setItem('voiceStackRegion', region);
+    overlay.style.opacity = '0';
+    overlay.style.transition = 'opacity 0.3s ease-out';
+    
+    setTimeout(() => {
+      overlay.remove();
+      
+      if (region === 'uk') {
+        window.location.href = '/uk';
+      } else if (region === 'aus') {
+        window.location.href = '/aus';
+      } else {
+        window.location.href = '/us';
+      }
+    }, 300);
+  }
+  
+  // Event listeners
+  setTimeout(() => {
+    const usaBtn = document.getElementById('continue-usa');
+    const ukBtn = document.getElementById('go-to-uk');
+    const ausBtn = document.getElementById('go-to-aus');
+    
+    if (usaBtn) usaBtn.addEventListener('click', () => selectRegion('us'));
+    if (ukBtn) ukBtn.addEventListener('click', () => selectRegion('uk'));
+    if (ausBtn) ausBtn.addEventListener('click', () => selectRegion('aus'));
+  }, 100);
+})();
+        `
+      }}
+    />
+  );
+};
+

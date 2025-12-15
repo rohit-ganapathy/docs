@@ -1,0 +1,101 @@
+/* Premium Card Styling for Docs Landing Page */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* Make logo larger */
+#navbar img,
+#navbar a img,
+.navbar img,
+[class*="navbar"] img,
+[class*="logo"] img {
+  max-height: 40px !important;
+  height: 40px !important;
+  width: auto !important;
+}
+
+/* Target Mintlify cards with multiple selectors for compatibility */
+.card,
+[class*="card"],
+a[class*="Card"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E6EAF0 !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+.card:hover,
+[class*="card"]:hover,
+a[class*="Card"]:hover {
+  background-color: #F9FAFB !important;
+  border-color: #BFDBFE !important;
+  transform: translateY(-1px);
+}
+
+/* Card title styling - various possible selectors */
+.card h3,
+.card [class*="title"],
+[class*="card"] h3,
+[class*="Card"] h3,
+.card-title {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.005em !important;
+  color: #111827 !important;
+  margin-top: 8px !important;
+  margin-bottom: 6px !important;
+  line-height: 1.3 !important;
+}
+
+/* Card description styling */
+.card p,
+.card [class*="description"],
+[class*="card"] p,
+[class*="Card"] p:not(h3) {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
+  color: #4B5563 !important;
+  margin: 0 !important;
+}
+
+/* Card icon styling */
+.card svg,
+.card [class*="icon"],
+[class*="card"] svg,
+[class*="Card"] svg {
+  width: 20px !important;
+  height: 20px !important;
+  color: #3B82F6 !important;
+}
+
+/* Card group spacing */
+.card-group,
+[class*="CardGroup"],
+[class*="card-group"] {
+  gap: 20px !important;
+}
+
+/* Global font application for custom mode pages */
+body,
+html {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Hero Search Input Styling */
+input[type="text"]::placeholder {
+  color: #9CA3AF;
+  opacity: 1;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+input[type="text"]:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12) !important;
+}
+
