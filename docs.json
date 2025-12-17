@@ -49,7 +49,49 @@
       },
       {
         "tab": "Features & Tools",
-        "pages": ["features-tools/index"]
+        "groups": [
+          {
+            "group": "Phone Calls and Voicemail",
+            "pages": [
+              {
+                "group": "Call Settings and Preferences",
+                "expanded": true,
+                "pages": [
+                  "features-tools/holiday-calendar",
+                  "features-tools/caller-id",
+                  "features-tools/uploading-sound-clips"
+                ]
+              },
+              {
+                "group": "Call Monitoring and Quality",
+                "expanded": true,
+                "pages": [
+                  "features-tools/call-history",
+                  "features-tools/call-scoring",
+                  "features-tools/blocked-contact"
+                ]
+              },
+              {
+                "group": "Call Routing",
+                "expanded": true,
+                "pages": [
+                  "features-tools/ring-group-phone-tree-call-queue",
+                  "features-tools/call-forwarding"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Other Features",
+            "pages": [
+              "features-tools/chat-fax-and-text",
+              "features-tools/potential-opportunities",
+              "features-tools/omni-channel-lead-management",
+              "features-tools/ai-agents",
+              "features-tools/analytics-and-reports"
+            ]
+          }
+        ]
       },
       {
         "tab": "Deskphones and Devices",
